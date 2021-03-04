@@ -33,9 +33,9 @@ accounts=(
 )
 
 if [ "$SOLIDITY_COVERAGE" != true ]; then
-  node --max-old-space-size=4096 node_modules/.bin/ganache-cli --gasLimit 0xfffffffffff "${accounts[@]}" > /dev/null &
+  node --max-old-space-size=4096 node_modules/.bin/ganache-cli --chainId 1337 --gasLimit 0xfffffffffff "${accounts[@]}" > /dev/null &
   ganache_pid=$!
   node --max-old-space-size=4096 node_modules/.bin/truffle test --network ganache "$@"
 else
-  node --max-old-space-size=4096 node_modules/.bin/truffle run coverage --network ganache 2>/dev/null
+  node --max-old-space-size=4096 node_modules/.bin/truffle run coverage --network ganache "$@" 2>/dev/null
 fi

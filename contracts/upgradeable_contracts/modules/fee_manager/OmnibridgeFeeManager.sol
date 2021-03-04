@@ -1,6 +1,6 @@
 pragma solidity 0.7.5;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
 import "../MediatorOwnableModule.sol";
 
@@ -203,7 +203,7 @@ contract OmnibridgeFeeManager is MediatorOwnableModule {
             if (diff > 0 && randomAccountIndex == i) {
                 feeToDistribute = feeToDistribute.add(diff);
             }
-            ERC20(_token).transfer(rewardAddresses[i], feeToDistribute);
+            IERC20(_token).transfer(rewardAddresses[i], feeToDistribute);
         }
     }
 
