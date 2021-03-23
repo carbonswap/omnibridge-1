@@ -22,7 +22,7 @@ ${FLATTENER} ${BRIDGE_CONTRACTS_DIR}/modules/fee_manager/OmnibridgeFeeManager.so
 ${FLATTENER} ${BRIDGE_CONTRACTS_DIR}/modules/gas_limit/SelectorTokenGasLimitManager.sol > flats/SelectorTokenGasLimitManager_flat.sol
 
 echo "Flattening token contracts"
-${FLATTENER} contracts/tokens/OmnnibridgeTokenImage.sol > flats/OmnnibridgeTokenImage_flat.sol
+${FLATTENER} contracts/tokens/OmnibridgeTokenImage.sol > flats/OmnibridgeTokenImage_flat.sol
 
 for file in flats/*.sol; do
   grep -v SPDX "$file" > tmp; mv tmp "$file"
